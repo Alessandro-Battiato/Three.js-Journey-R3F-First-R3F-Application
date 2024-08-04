@@ -25,7 +25,7 @@ const Experience = () => {
             <orbitControls args={[camera, gl.domElement]} />
             {/* this is official THREE.JS documentation, you need to provide these elements to the orbit controls */}
 
-            <directionalLight />
+            <directionalLight position={[1, 2, 3]} intensity={4.5} />
 
             <group ref={groupRef}>
                 <mesh
