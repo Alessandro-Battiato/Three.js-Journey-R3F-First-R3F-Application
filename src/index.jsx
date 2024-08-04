@@ -8,6 +8,7 @@ const root = ReactDOM.createRoot(document.querySelector("#root"));
 
 root.render(
     <Canvas
+        dpr={[1, 2]} // force pixel ratio to the provided numbers for everyone, even though this is the default applied by R3F
         // flat No tone mapping
         gl={{
             antialias: true,
