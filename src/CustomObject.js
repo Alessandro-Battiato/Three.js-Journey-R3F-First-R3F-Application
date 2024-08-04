@@ -1,4 +1,5 @@
 import React from "react";
+import { DoubleSide } from "three";
 
 const CustomObject = () => {
     const verticesCount = 10 * 3; // 10 triangles composed of 3 vertices
@@ -18,7 +19,7 @@ const CustomObject = () => {
                     array={positions}
                 />
             </bufferGeometry>
-            <meshBasicMaterial color="red" />
+            <meshBasicMaterial color="red" side={DoubleSide} />
         </mesh>
     );
 };
