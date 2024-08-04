@@ -36,16 +36,16 @@ const Experience = () => {
                 >
                     {/* <sphereGeometry args={[1.5, 32, 32]} /> */}
                     <boxGeometry />
-                    <meshBasicMaterial color="mediumPurple" />
+                    <meshStandardMaterial color="mediumPurple" />
                 </mesh>
                 <mesh position-x={-3}>
                     <sphereGeometry />
-                    <meshBasicMaterial color="orange" />
+                    <meshStandardMaterial color="orange" />
                 </mesh>
             </group>
             <mesh scale={10} position-y={-1} rotation-x={Math.PI * 0.5}>
                 <planeGeometry />
-                <meshBasicMaterial side={DoubleSide} color="greenyellow" />
+                <meshStandardMaterial side={DoubleSide} color="greenyellow" />
             </mesh>
         </>
     );
