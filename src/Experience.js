@@ -3,6 +3,7 @@ import { DoubleSide } from "three";
 import { useFrame, extend, useThree } from "@react-three/fiber";
 import { useRef } from "react";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
+import CustomObject from "./CustomObject";
 
 extend({ OrbitControls }); // extend is used to convert a non-native R3F class into a native one
 
@@ -48,6 +49,8 @@ const Experience = () => {
                 <planeGeometry />
                 <meshStandardMaterial side={DoubleSide} color="greenyellow" />
             </mesh>
+
+            <CustomObject />
         </>
     );
 };
