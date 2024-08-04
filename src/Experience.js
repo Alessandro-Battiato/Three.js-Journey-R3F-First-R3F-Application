@@ -5,6 +5,7 @@ import { useRef } from "react";
 
 const Experience = () => {
     const cubeRef = useRef(null);
+    const groupRef = useRef(null);
 
     useFrame((state, delta) => {
         // This will be called each frame BEFORE rendering the scene
@@ -12,24 +13,27 @@ const Experience = () => {
         // you would trigger re renders for each frame and this would be horrible for performances
 
         cubeRef.current.rotation.y += delta; // using delta the animation will be the same for everyone even for the most powerful gaming pcs
+        groupRef.current.rotation.y += delta;
     });
 
     return (
         <>
-            <mesh
-                ref={cubeRef}
-                position-x={3}
-                rotation-y={Math.PI * 0.23}
-                scale={1.5}
-            >
-                {/* <sphereGeometry args={[1.5, 32, 32]} /> */}
-                <boxGeometry />
-                <meshBasicMaterial color="mediumPurple" />
-            </mesh>
-            <mesh position-x={-3}>
-                <sphereGeometry />
-                <meshBasicMaterial color="orange" />
-            </mesh>
+            <group ref={groupRef}>
+                <mesh
+                    ref={cubeRef}
+                    position-x={3}
+                    rotation-y={Math.PI * 0.23}
+                    scale={1.5}
+                >
+                    {/* <sphereGeometry args={[1.5, 32, 32]} /> */}
+                    <boxGeometry />
+                    <meshBasicMaterial color="mediumPurple" />
+                </mesh>
+                <mesh position-x={-3}>
+                    <sphereGeometry />
+                    <meshBasicMaterial color="orange" />
+                </mesh>
+            </group>
             <mesh scale={10} position-y={-1} rotation-x={Math.PI * 0.5}>
                 <planeGeometry />
                 <meshBasicMaterial side={DoubleSide} color="greenyellow" />
