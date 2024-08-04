@@ -1,7 +1,15 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { DoubleSide } from "three";
 
 const CustomObject = () => {
+    const geometryRef = useRef(null);
+
+    useEffect(() => {
+        if (geometryRef.current) {
+            geometryRef.current.computeVertexNormals();
+        }
+    }, []);
+
     const verticesCount = 10 * 3; // 10 triangles composed of 3 vertices
 
     const positions = useMemo(() => {
@@ -16,7 +24,7 @@ const CustomObject = () => {
 
     return (
         <mesh>
-            <bufferGeometry>
+            <bufferGeometry ref={geometryRef}>
                 <bufferAttribute
                     attach="attributes-position"
                     count={verticesCount}
@@ -24,7 +32,7 @@ const CustomObject = () => {
                     array={positions}
                 />
             </bufferGeometry>
-            <meshBasicMaterial color="red" side={DoubleSide} />
+            <meshStandardMaterial color="red" side={DoubleSide} />
         </mesh>
     );
 };
