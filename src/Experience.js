@@ -17,10 +17,10 @@ const Experience = () => {
         // To animate objects, everything has to be done inside this hook, otherwise if you used useState or something like that
         // you would trigger re renders for each frame and this would be horrible for performances
 
-        const angle = state.clock.elapsedTime;
-        state.camera.position.x = Math.sin(angle) * 8; // to make wider circles, you multiply by a number, the higher, the wider the circle
-        state.camera.position.z = Math.cos(angle) * 8; // to make wider circles, you multiply by a number, the higher, the wider the circle
-        state.camera.lookAt(0, 0, 0);
+        // const angle = state.clock.elapsedTime;
+        // state.camera.position.x = Math.sin(angle) * 8; // to make wider circles, you multiply by a number, the higher, the wider the circle
+        // state.camera.position.z = Math.cos(angle) * 8; // to make wider circles, you multiply by a number, the higher, the wider the circle
+        // state.camera.lookAt(0, 0, 0);
 
         cubeRef.current.rotation.y += delta; // using delta the animation will be the same for everyone even for the most powerful gaming pcs
         groupRef.current.rotation.y += delta;
@@ -28,7 +28,7 @@ const Experience = () => {
 
     return (
         <>
-            {/* <orbitControls args={[camera, gl.domElement]} /> */}
+            <orbitControls args={[camera, gl.domElement]} />
             {/* this is official THREE.JS documentation, you need to provide these elements to the orbit controls */}
 
             <directionalLight position={[1, 2, 3]} intensity={4.5} />
