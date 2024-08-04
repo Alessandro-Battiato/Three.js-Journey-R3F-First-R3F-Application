@@ -2,11 +2,19 @@ import "./style.css";
 import ReactDOM from "react-dom/client";
 import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
+import * as THREE from "three";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
 root.render(
     <Canvas
+        // flat No tone mapping
+        gl={{
+            antialias: true,
+            outputColorSpace: THREE.SRGBColorSpace,
+            toneMapping: THREE.ACESFilmicToneMapping,
+            // toneMapping: THREE.CineonToneMapping, // different saturations of colors
+        }}
         camera={{
             fov: 45,
             near: 0.1,
